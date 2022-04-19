@@ -7,11 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $nameErr = "Name is required";
         echo $nameErr . '<br><br>' ;
     }else{
-        if (isset($_POST['submit'])){
             $name =Validation($_POST['name']);
             if (!preg_match("/^[a-zA-Z]+$/" , $name)){
                 echo 'only later' . '<br>';
-            }
         }
     }
 
@@ -19,14 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $age_err = "Age is required";
         echo $age_err . '<br><br>' ;
     }else{
-        if (isset($_POST['submit'])){
             $age = Validation($_POST['age']);
             if(!($age > 10 && $age < 30)){
                 echo ' Age must only contain numbers between 10 and 30' . '<br>';
             }
             if(!preg_match("/[0-9]+/" , $age)){
                 echo 'Age must only contain numbers' . '<br>';
-            }
         }
     }
 
@@ -35,11 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $email_err = "Email is required" ;
         echo $email_err . '<br><br>';
     }else{
-        if (isset($_POST['submit'])){
             $email =Validation($_POST['email']) ;
             if(!preg_match("/[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]/" , $email)){
                 echo "must be email syntax" . '<br>';
-            }
         }
     }
     $gender = Validation($_POST['gender']);
